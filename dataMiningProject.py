@@ -151,32 +151,32 @@ st.info("High Risk regions are predicted based on total cases and deaths using L
 # -------------------------------
 # GEOGRAPHIC RISK MAP
 # -------------------------------
-st.header("🗺️ Geographic Risk Distribution")
+#st.header("🗺️ Geographic Risk Distribution")
 
 # 1. Coordinate Dictionary for PH Regions (Approximate Centers)
-region_coords = {
-    "NCR": [14.5995, 120.9842],
-    "REGION IV-A (CALABARZON)": [14.1008, 121.0794],
-    "REGION III (CENTRAL LUZON)": [15.4828, 120.7120],
-    "REGION VII (CENTRAL VISAYAS)": [10.3157, 123.8854],
-    "REGION VI (WESTERN VISAYAS)": [10.7202, 122.5621],
-    "REGION XI (DAVAO REGION)": [7.1907, 125.4553],
+#region_coords = {
+  #  "NCR": [14.5995, 120.9842],
+  #  "REGION IV-A (CALABARZON)": [14.1008, 121.0794],
+ #   "REGION III (CENTRAL LUZON)": [15.4828, 120.7120],
+  #  "REGION VII (CENTRAL VISAYAS)": [10.3157, 123.8854],
+  #  "REGION VI (WESTERN VISAYAS)": [10.7202, 122.5621],
+  #  "REGION XI (DAVAO REGION)": [7.1907, 125.4553],
     # ... you can add more regions here!
-}
+#}
 
 # 2. Map the coordinates to your summary dataframe
-map_df = summary.copy()
-map_df['lat'] = map_df['RegionRes'].map(lambda x: region_coords.get(x, [None, None])[0])
-map_df['lon'] = map_df['RegionRes'].map(lambda x: region_coords.get(x, [None, None])[1])
+#map_df = summary.copy()
+#map_df['lat'] = map_df['RegionRes'].map(lambda x: region_coords.get(x, [None, None])[0])
+#map_df['lon'] = map_df['RegionRes'].map(lambda x: region_coords.get(x, [None, None])[1])
 
 # 3. Clean up any regions we didn't provide coordinates for
-map_df = map_df.dropna(subset=['lat', 'lon'])
+#map_df = map_df.dropna(subset=['lat', 'lon'])
 
 # 4. Display the map
 # High Risk regions will show up prominently if you filter them
-st.map(map_df, latitude='lat', longitude='lon', size='TotalCases', color='#ff4b4b' if any(map_df['PredictedRisk'] == 1) else '#0000ff')
+#st.map(map_df, latitude='lat', longitude='lon', size='TotalCases', color='#ff4b4b' if any(map_df['PredictedRisk'] == 1) else '#0000ff')
 
-st.info("💡 The bubbles represent the location of each region. Larger bubbles indicate more cases.")
+#st.info("💡 The bubbles represent the location of each region. Larger bubbles indicate more cases.")
 # -------------------------------
 # 6️⃣ MODEL METRICS
 # -------------------------------
